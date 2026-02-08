@@ -26,7 +26,6 @@ jobs:
           auto-update-conda: true
           python-version: "3.11"
           activate-environment: build-env
-          environment-name: build-env
 
       - name: Install dependencies and pyinstaller
         shell: bash -l {0}
@@ -49,8 +48,8 @@ jobs:
         run: |
           mkdir bin
           choco install ffmpeg -y
-          copy "C:\Program Files\ffmpeg\bin\ffmpeg.exe" bin\
-          copy "C:\Program Files\ffmpeg\bin\ffprobe.exe" bin\
+          copy "C:\ProgramData\chocolatey\bin\ffmpeg.exe" bin\
+          copy "C:\ProgramData\chocolatey\bin\ffprobe.exe" bin\
 
       - name: Download FFmpeg (macOS)
         if: runner.os == 'macOS'
@@ -68,5 +67,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-${{ matrix.os }}
+          name: AudioTTo-${{ runner.os }}
           path: dist/
