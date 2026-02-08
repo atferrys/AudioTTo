@@ -48,8 +48,8 @@ jobs:
         run: |
           mkdir bin
           choco install ffmpeg -y
-          copy "C:\ProgramData\chocolatey\bin\ffmpeg.exe" bin\
-          copy "C:\ProgramData\chocolatey\bin\ffprobe.exe" bin\
+          copy "C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin\ffmpeg.exe" bin\
+          copy "C:\ProgramData\chocolatey\lib\ffmpeg\tools\ffmpeg\bin\ffprobe.exe" bin\
 
       - name: Download FFmpeg (macOS)
         if: runner.os == 'macOS'
