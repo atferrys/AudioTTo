@@ -20,12 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Anaconda
-        uses: conda-incubator/setup-miniconda@v3
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
-          auto-update-conda: true
-          python-version: "3.11"
-          activate-environment: build-env
+          python-version: '3.11' 
 
       - name: Install dependencies and pyinstaller
         shell: bash -l {0}
